@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        const dizi1 = Array(); //boş bir dizi oluşturduk
+        console.log(dizi1);
+        console.log(" ");
+        const dizi2 = Array(8); //Sekiz boş değere sahip dizi oluşturduk
+        console.log(dizi2);
+        console.log(" ");
+        const dizi3 = Array(8).fill("x"); // her biri x içeren 8lik dizi
+        console.log(dizi3);
+        console.log(" ");
+        const ilkListe = [0,1,2,3];
+        const ikinciListe = [4,5,6];
+        const ucuncuListe = Array(7,8,9);
+        const dorduncuListe = [0,11,12];
+        const besinciListe = ilkListe.concat(ikinciListe, ucuncuListe, dorduncuListe);
+        console.log(besinciListe);
+        console.log(" ");
+        console.log(besinciListe.indexOf(5)); // besinciListe dizisinde 5 var mı?
+        console.log(besinciListe.indexOf(21)); // aynı listede 21 var mı? Olmadığı için -1 döner
+
+        const meyveler = ["muz", "portakal", "elma", "limon"];
+        let kontrolEt = meyveler.indexOf("muz");
+        if(kontrolEt === -1){ // == yapsaydık ta fark etmezdi. 
+            console.log("Dizide 'muz' isimli bir değer bulunmuyor.");
+        } else {
+            console.log("Dizide 'muz' isimli bir değer mevcut.");
+        }
+         // ya da 
+         if(kontrolEt != -1){
+            console.log("İkinci aramamızda da 'muz' isimli bir değer mevcut olduğunu görüyoruz.");
+         } else {
+            console.log("İkinci aramamızda 'muz' isimli bir değer bulunmuyor.");
+         }
+
+         // Dizideki son değerin bulunduğu konumu görelim
+         console.log(meyveler.lastIndexOf('elma'));
+
+         // Aradığımız değer listede var mı? Yok mu?
+         console.log(meyveler.includes('muz')); // true 
+
+         // Verimiz hakikaten bir dizi mi?
+         console.log(Array.isArray(meyveler));
+
+         // Dizimizi bir stringe döndürelim
+         const meyveler2 = ["muz", "portakal", "elma", "limon"];
+         console.log(meyveler2.toString()+" artık bir string olmuştur");
+         console.log(meyveler2[0]);
+         
+         // join aynı şekilde bir stringe döndürür fakat ayırıcıyı biz belirleyebiliriz
+         const markalar = ["Toyota","Nissan","Renault","Ferrari","Fiat"];
+         console.log(markalar.join('= '));
+
+         // Şimdi de dizinin istediğimiz bir yerini bölelim () ya da (0) kullanımı diziyi olduğu gibi alır.
+         const diller = ["Türkçe","İngilizce","Rusça","Almanca","Fransızca"];
+         console.log(diller.slice(1,diller.length-2));
+
+         // Splice (Ekleme)  Üç parametre alır: Başlangıç ​​konumu, kaldırılacak öğe sayısı ve eklenecek öğe sayısı. 
+         // MAALESEF EKLEMİYOR. ARAŞTIRDIM ve ALTTA EKLİYOR. 
+         // splice(start, deleteCount, item1, item2, itemN)
+         const yazilimDilleri = ["PHP","JavaScript","Java","Python"];
+         yazilimDilleri.splice(1,0,'Deneme');
+         console.log(yazilimDilleri);
+         yazilimDilleri.splice(4,1,3,'Deneme');
+         console.log(yazilimDilleri);
+         
+         let sayilar = [1,2,3,4,5,6];
+         console.log(sayilar.splice(3,1,7,8,9)); 
+
+         const aylar = ['Oca', 'Mar', 'Nis', 'Haz'];
+         aylar.splice(1, 0, 'Şub');
+        // dizideki istenen değer indeksine, belirttiğimiz elemanı ekledik
+        console.log(aylar);
+
+        aylar.splice(4, 1, 'May','Haz','Tem');
+        // dizideki artık 4 numaralı indeksi, istediğimiz değer ile değiştirdik ve ardından istediğimiz kadar elemanı ekledik
+        console.log(aylar);
+
+         // diziye yeni bir öğe/eleman push layalım.
+         const ogeler = ["öğe1","öğe2","öğe3"];
+         ogeler.push("yeni öğe"); 
+         console.log(ogeler); 
+
+         // dizinin sonundaki (pop) ve başındaki (shift) elemanları kaldırma
+         const saydim = [1,2,3,4,5];
+         saydim.pop();
+         console.log(saydim);
+         saydim.shift();
+         console.log(saydim);
+
+         // dizinin başına eleman ekleme
+         const yaziSay = ["bir","iki","üç","dört"];
+         yaziSay.unshift("sıfır");
+         console.log(yaziSay);
+
+         // dizinin sıralamasını değiştirelim
+         const sayBakalim = ["bir","iki","üç","dört"];
+         sayBakalim.reverse();
+         console.log(sayBakalim);
+
+         // sıralama, Türkçe karakterlerde sıçıyor
+         const alfabe = ["z","h","y","t","ç","d","ı","İ","ş","Ş","ö","Ö","ü","Ü"];
+         alfabe.sort();
+         console.log(alfabe);
+         // Şimdi de bunu öğrendiğimiz gibi tersten sıralayalım :) İbneliğine 
+         alfabe.reverse();
+         console.log(alfabe);
+
+         // Şimdi de dizi içinde dizi yapalım
+         const ilkNumaralar = [1,2,3];
+         const ikinciNumaralar = [4,5,6];
+         const diziIcindeDizi = [[1,2,3],[4,5,6],["Ali","Veli","Ziya"]];
+         console.log(diziIcindeDizi);
+         console.log(diziIcindeDizi[2]);
+         console.log(diziIcindeDizi.length);
+         console.log(diziIcindeDizi[1].length);
+
+
+    </script>
+</body>
+</html>
