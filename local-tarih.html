@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+const event = new Date();
+const options = { weekday: 'short', year: 'numeric', month: 'long', day: 'numeric' };
+
+console.log(event.toLocaleDateString('de-DE', options));
+// expected output (varies according to local timezone): Donnerstag, 20. Dezember 2012
+
+console.log(event.toLocaleDateString('ar-EG', options));
+// expected output (varies according to local timezone): الخميس، ٢٠ ديسمبر، ٢٠١٢
+
+console.log(event.toLocaleDateString(undefined, options));
+// expected output (varies according to local timezone and default locale): Thursday, December 20, 2012
+
+
+// Tarih çok fazla yerde kullanılacak ise Intl.DateTimeFormat kullanılmalıdır.
+const date = new Date();
+// Results below assume UTC timezone - your results may vary
+
+// Specify default date formatting for language (locale)
+console.log(new Intl.DateTimeFormat('tr-TR').format(date));
+// expected output: "12/20/2020"
+
+// Specify default date formatting for language with a fallback language (in this case Indonesian)
+console.log(new Intl.DateTimeFormat(['ban', 'id']).format(date));
+// expected output: "20/12/2020"
+
+// Specify date and time format using "style" options (i.e. full, long, medium, short)
+console.log(new Intl.DateTimeFormat(undefined, { dateStyle: 'full', timeStyle: 'long' }).format(date));
+// Expected output "Sunday, 20 December 2020 at 14:23:16 GMT+11"
+    </script>
+</body>
+</html>
