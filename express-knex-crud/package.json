@@ -1,5 +1,5 @@
 {
-  "name": "exp-sqlite-crud-27032022",
+  "name": "express-knex-crud",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
